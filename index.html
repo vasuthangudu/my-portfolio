@@ -516,17 +516,34 @@
   <script src="js/main.js"></script>
 
 
-  <script>
-    const scriptURL = 'https://script.google.com/macros/s/AKfycby4Psi1X9lY1bZb0RZEeNhweAFY3tUu9OECOS9mitdYMd6aq85Q482VeDJKyYKDQz5m2g/exec'
-    const form = document.forms['submit-to-google-sheet']
-  
-    form.addEventListener('submit', e => {
-      e.preventDefault()
-      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-        .then(response => console.log('Success!', response))
-        .catch(error => console.error('Error!', error.message))
-      alert('data submited');
-    })
-  </script>
+ <script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycby4Psi1X9lY1bZb0RZEeNhweAFY3tUu9OECOS9mitdYMd6aq85Q482VeDJKyYKDQz5m2g/exec';
+  const form = document.forms['submit-to-google-sheet'];
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+
+    // Show "sending" alert
+    alert('Your data is sending...');
+
+    // Hide the form data (optional: you can fade out or disable instead)
+    form.style.display = 'none';
+
+    // Send data
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => {
+        console.log('Success!', response);
+        alert('Data submitted successfully!');
+      })
+      .catch(error => {
+        console.error('Error!', error.message);
+        alert('There was an error submitting your data.');
+        
+        // Re-show the form in case of error
+        form.style.display = 'block';
+      });
+  });
+</script>
+
 </body>
 </html>

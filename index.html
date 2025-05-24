@@ -516,34 +516,45 @@
   <script src="js/main.js"></script>
 
 
- <script>
+<script>
   const scriptURL = 'https://script.google.com/macros/s/AKfycby4Psi1X9lY1bZb0RZEeNhweAFY3tUu9OECOS9mitdYMd6aq85Q482VeDJKyYKDQz5m2g/exec';
   const form = document.forms['submit-to-google-sheet'];
+  const sendMessageDiv = document.getElementById('sendmessage');
+  const errorMessageDiv = document.getElementById('errormessage');
 
   form.addEventListener('submit', e => {
     e.preventDefault();
 
-    // Show "sending" alert
+    // Show sending alert
     alert('Your data is sending...');
 
-    // Hide the form data (optional: you can fade out or disable instead)
-    form.style.display = 'none';
-
-    // Send data
+    // Send form data
     fetch(scriptURL, { method: 'POST', body: new FormData(form)})
       .then(response => {
         console.log('Success!', response);
-        alert('Data submitted successfully!');
+
+        // Clear the form fields
+        form.reset();
+
+        // Show success alert
+        alert('Your message has been sent successfully!');
+
+        // Show "Your message has been sent" div
+        sendMessageDiv.style.display = 'block';
+        errorMessageDiv.style.display = 'none';
       })
       .catch(error => {
         console.error('Error!', error.message);
-        alert('There was an error submitting your data.');
-        
-        // Re-show the form in case of error
-        form.style.display = 'block';
+
+        // Show error message
+        errorMessageDiv.innerText = 'There was an error submitting your data. Please try again.';
+        errorMessageDiv.style.display = 'block';
+        sendMessageDiv.style.display = 'none';
       });
   });
 </script>
+
+
 
 </body>
 </html>

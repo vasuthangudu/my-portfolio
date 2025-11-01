@@ -1,190 +1,225 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Vasu Portfolio </title>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <meta content="" name="keywords">
-  <meta content="" name="description">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Vasu Thangudu — MERN Developer</title>
 
-  <!-- Favicons -->
-  <link href="img/favicon.png" rel="icon">
-  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  <!-- Bootstrap CSS File -->
-  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Libraries CSS Files -->
-  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  <link href="lib/animate/animate.min.css" rel="stylesheet">
-  <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
-  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-  <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+  <!-- Icon (Font Awesome) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <!-- Main Stylesheet File -->
-  <link href="css/style.css" rel="stylesheet">
+  <style>
+    :root{
+      --accent: #00E5FF;
+      --accent-2: #00B8D9;
+      --bg: #0f1724;
+      --card: #0b1220;
+      --muted: #97a0b3;
+      --glass: rgba(255,255,255,0.03);
+      --success: #28a745;
+      --max-width: 1100px;
+    }
 
-  <!-- =======================================================
-    Theme Name: DevFolio
-    Theme URL: https://bootstrapmade.com/devfolio-bootstrap-portfolio-html-template/
-    Author: BootstrapMade.com
-    License: https://bootstrapmade.com/license/
-  ======================================================= -->
+    html,body{height:100%;font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial; background: linear-gradient(180deg,#071021 0%, #0b1422 100%); color:#e8eef8; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;}
+    a { text-decoration:none; }
+    .container-narrow{ max-width: var(--max-width); margin: 0 auto; padding-left: 1rem; padding-right: 1rem; }
 
+    /* NAV */
+    .navbar { background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); backdrop-filter: blur(6px); border-bottom: 1px solid rgba(255,255,255,0.03); }
+    .navbar-brand { font-weight:700; color:var(--accent); letter-spacing:0.4px; }
+    .nav-link { color: #d3e7ff; margin-right:.25rem; }
+    .nav-link:hover { color: var(--accent); }
+
+    /* HERO */
+    #home { min-height: 92vh; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; }
+    .hero-bg { position:absolute; inset:0; background-image:url('https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=1920&auto=format&fit=crop&q=80'); background-size:cover; background-position:center; filter:contrast(0.9) saturate(1.05) brightness(0.5); z-index:0; transform: scale(1.02); }
+    .hero-overlay{ position:absolute; inset:0; background: linear-gradient(180deg, rgba(8,13,20,0.6), rgba(2,6,12,0.6)); z-index:1; }
+    .hero-card{ position:relative; z-index:2; max-width:1100px; width:100%; padding:2rem; display:flex; gap:1.5rem; align-items:center; background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02)); border-radius:14px; box-shadow: 0 8px 30px rgba(2,6,12,0.6); border: 1px solid rgba(255,255,255,0.04); }
+    .hero-left{ flex:1; padding: 0.5rem 1rem; }
+    .hero-right{ min-width:220px; display:flex; justify-content:center; align-items:center; }
+    .hero-img { width:160px; height:160px; border-radius:14px; object-fit:cover; border: 4px solid rgba(0,229,255,0.09); box-shadow: 0 10px 30px rgba(0,0,0,0.6); }
+
+    h1.hero-title { font-size: clamp(1.6rem, 3vw, 2.6rem); margin:0; line-height:1.05; color:#ffffff; }
+    .accent { color: var(--accent); text-shadow: 0 6px 18px rgba(0,229,255,0.08); }
+
+    .typed { display:inline-block; font-weight:600; color:#dff7ff; }
+
+    .hero-cta .btn { border-radius:10px; padding:0.6rem 1rem; font-weight:600; }
+    .btn-outline-accent { color:var(--accent); border: 1.5px solid rgba(0,229,255,0.18); background: transparent; }
+    .btn-accent { background: linear-gradient(90deg,var(--accent),var(--accent-2)); color:#022; border: none; box-shadow: 0 8px 28px rgba(0,229,255,0.07); }
+
+    /* ABOUT */
+    .about-section { padding:3rem 0; }
+    .card-glass { background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border-radius:12px; padding:1.25rem; border:1px solid rgba(255,255,255,0.03); box-shadow: 0 14px 40px rgba(2,6,12,0.6); }
+    .about-info p { margin:0.25rem 0; color: var(--muted); }
+    .skill-label { display:flex; justify-content:space-between; align-items:center; font-weight:600; color:#dbeeff; margin-top:12px; }
+    .progress { height:10px; background: rgba(255,255,255,0.04); border-radius:999px; overflow:hidden; }
+    .progress-bar { background: linear-gradient(90deg,var(--accent),var(--accent-2)); }
+
+    /* PORTFOLIO */
+    .portfolio-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }
+    .work-box { border-radius:12px; overflow:hidden; background:var(--glass); border:1px solid rgba(255,255,255,0.03); }
+    .work-box img { width:100%; height:180px; object-fit:cover; display:block; }
+    .work-info{ padding:0.9rem; }
+    .w-title{ margin:0; font-weight:700; color:#fff; }
+
+    /* COUNTERS */
+    .counter { font-size:2.1rem; font-weight:800; color:var(--accent); }
+
+    /* CONTACT */
+    .contact-section { padding:2.5rem 0; }
+    .form-control { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.04); color:#eaf6ff; }
+    .form-control::placeholder { color: #94a6c3; opacity:1; }
+    .button-send { background: linear-gradient(90deg,var(--accent),var(--accent-2)); color:#022; border-radius:10px; padding:0.65rem 1.1rem; border:none; font-weight:700; }
+
+    footer { padding:1.3rem 0; text-align:center; color: #9fb6d3; font-size:0.9rem; border-top:1px solid rgba(255,255,255,0.02); margin-top:2rem; }
+
+    /* Responsive */
+    @media (max-width:991px){
+      .portfolio-grid{ grid-template-columns:repeat(2,1fr); }
+      .hero-card { flex-direction:column; gap:1rem; text-align:center; padding:1.25rem; }
+      .hero-right{ order:-1; }
+      .hero-img{ width:140px; height:140px; }
+    }
+    @media (max-width:576px){
+      .portfolio-grid{ grid-template-columns:1fr; }
+      .hero-img{ width:120px; height:120px; }
+      .hero-left{ padding:0; }
+      .hero-card{ padding:1rem; }
+      .skill-label{ font-size:0.95rem; }
+    }
+  </style>
 </head>
+<body>
 
-<body id="page-top">
-
-  <!--/ Nav Star /-->
-  <nav class="navbar navbar-b navbar-trans navbar-expand-md fixed-top" id="mainNav">
-    <div class="container">
-      <a class="navbar-brand js-scroll" href="#page-top"></a>
-      <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarDefault"
-        aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span></span>
-        <span></span>
-        <span></span>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-md sticky-top">
+    <div class="container container-narrow">
+      <a class="navbar-brand" href="#home">Vasu<span style="color:var(--accent);">.</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon" style="color:#dbe9ff;"><i class="fa fa-bars"></i></span>
       </button>
-      <div class="navbar-collapse collapse justify-content-end" id="navbarDefault">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link js-scroll active" href="#home">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll" href="#about">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll" href="#service">Services</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll" href="#work">Work</a>
-          </li>
-          
-          <li class="nav-item">
-            <a class="nav-link js-scroll" href="#contact">Contact</a>
-          </li>
-
-              <li class="nav-item">
-            <a class="nav-link js-scroll" href="https://drive.google.com/file/d/1KlbZH4gmYXpOLwjR3QUMb5T0dXYq_V6K/view?usp=sharing">Resume</a>
-          </li>
-
-          
+      <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+        <ul class="navbar-nav align-items-center">
+          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#service">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#work">Work</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item ms-2"><a class="btn btn-sm btn-outline-accent" href="https://drive.google.com/file/d/1LbUgEDXcS9USlbScCqVW5r1s6Bd8zPiT/view" target="_blank">Resume</a></li>
         </ul>
       </div>
     </div>
   </nav>
-  <!--/ Nav End /-->
 
-  <!--/ Intro Skew Star /-->
-  <div  id="home" class="intro route bg-image" style="background-image: url(img/vasu6.jpg) "   style="width:10px; height:10px;  transform: translate(-90%, -90%); background-size: contain; position: absolute; background-position: center center;">
-    <div class="overlay-itro"></div>
-    <div class="intro-content display-table">
-      <div class="table-cell">
-        <div class="container">
-          <!--<p class="display-6 color-d">Hello, world!</p>-->
-          <h1 class="intro-title mb-4">I am Vasu Thangudu</h1>
-          <p class="intro-subtitle"><span class="text-slider-items">MERN Developer</span><strong class="text-slider"></strong></p>
-          <!-- <p class="pt-3"><a class="btn btn-primary btn js-scroll px-4" href="#about" role="button">Learn More</a></p> -->
+  <!-- HERO -->
+  <section id="home">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-overlay" aria-hidden="true"></div>
+
+    <div class="container container-narrow">
+      <div class="hero-card">
+        <div class="hero-left">
+          <h1 class="hero-title">Hi, I'm <span class="accent">Vasu Thangudu</span></h1>
+          <p style="color:var(--muted); margin-top:10px; max-width:760px;">
+            MERN Stack developer building fast, accessible, and user-friendly web apps. I design responsive interfaces and robust backend services — focused on performance, maintainability and great UX.
+          </p>
+
+          <p style="margin-top:10px;">
+            <span style="color:#d3f6ff; font-weight:600;">I build:</span>
+            <span class="typed" id="typed-line">React.js apps, E-commerce, Admin Dashboards, REST APIs</span>
+          </p>
+
+          <div class="hero-cta mt-3 d-flex gap-2 flex-wrap">
+            <a class="btn btn-outline-accent" href="#about">About Me</a>
+            <a class="btn btn-accent" href="#work">View Projects</a>
+            <a class="btn btn-sm btn-outline-accent" href="mailto:thanguduvasu2004@gmail.com"><i class="fa fa-envelope me-1"></i>Hire Me</a>
+          </div>
+
+          <div class="mt-3 d-flex gap-3 flex-wrap" style="color:var(--muted); font-size:0.95rem;">
+            <div><i class="fa fa-building me-2" style="color:var(--accent)"></i>Centurion University</div>
+            <div><i class="fa fa-phone me-2" style="color:var(--accent)"></i>+91 9347893134</div>
+            <div><i class="fa fa-envelope me-2" style="color:var(--accent)"></i>thanguduvasu2004@gmail.com</div>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <!-- Replace this src with your real portrait image path "img/vasu4.png" -->
+          <img class="hero-img" src="img/vasu4.png" alt="Vasu Thangudu portrait" onerror="this.src='https://via.placeholder.com/400x400?text=Vasu+Thangudu'">
         </div>
       </div>
     </div>
-  </div>
-  <!--/ Intro Skew End /-->
+  </section>
 
-  <section id="about" class="about-mf sect-pt4 route">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="box-shadow-full">
-            <div class="row">
+  <!-- ABOUT -->
+  <section id="about" class="about-section">
+    <div class="container container-narrow">
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-5">
+          <div class="card-glass text-center">
+            <img src="img/vasu4.png" alt="Vasu portrait" class="img-fluid rounded mb-3" style="max-width:220px; margin:auto;" onerror="this.src='https://via.placeholder.com/300x300?text=Vasu'">
+            <h4 style="margin-bottom:6px;">Vasu Thangudu</h4>
+            <p style="color:var(--muted); margin-bottom:0.25rem;">MERN Stack Developer</p>
+            <p style="color:var(--muted); font-size:0.9rem;">B.Tech (ECE) — Centurion University</p>
+            <div class="mt-3">
+              <a href="https://github.com/vasuthangudu" target="_blank" class="btn btn-sm btn-outline-accent me-2"><i class="fa fa-github me-1"></i>GitHub</a>
+              <a href="https://www.linkedin.com/in/vasu-thangudu/" target="_blank" class="btn btn-sm btn-outline-accent"><i class="fa fa-linkedin me-1"></i>LinkedIn</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-7">
+          <div class="card-glass">
+            <h5 style="margin-bottom:8px;">About me</h5>
+            <p style="color:var(--muted); line-height:1.7;">
+              I’m <strong style="color:var(--accent)">Vasu</strong>, a dedicated MERN Stack developer focused on building production-ready web applications.
+              I take care of UI, client-side performance, RESTful APIs, and database modeling. I’ve contributed to e-commerce platforms, admin dashboards and learning portals during internships at TechnoHacks EduTech, CodingBrains and Academor.
+            </p>
+
+            <div class="row mt-3">
               <div class="col-md-6">
-                <div class="row">
-                  <div class="col-sm-6 col-md-5">
-                    <div class="about-img">
-                      <img src="img/vasu.jpg" class="img-fluid rounded b-shadow-a" alt="">
-                    </div>
-                  </div>
-                  <div class="col-sm-6 col-md-7">
-                    <div class="about-info">
-                      <p><span class="title-s">Name: </span> <span>Vasu Thangudu</span></p>
-                      <p><span class="title-s">Profile: </span> <span> MERN stack developer</span></p>
-                      <p><span class="title-s">Email: </span> <span> thanguduvasu2004@gmail.com </span></p>
-                      <p><span class="title-s">Phone: </span> <span>+91 9347893134</span></p>
-                    </div>
-                  </div>
-                </div>
-                <div class="skill-mf">
-                  <p class="title-s">Skill</p>
-                  <span>HTML</span> <span class="pull-right">95%</span>
-                  <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 95%;" aria-valuenow="85" aria-valuemin="0"
-                      aria-valuemax="100"></div>
-                  </div>
-                  <span>CSS</span> <span class="pull-right">80%</span>
-                  <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="75" aria-valuemin="0"
-                      aria-valuemax="100"></div>
-                  </div>
-                  <span>BOOTSTRAP</span> <span class="pull-right">80%</span>
-                  <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="50" aria-valuemin="0"
-                      aria-valuemax="100"></div>
-                  </div>
-                  <span>JAVASCRIPT</span> <span class="pull-right">90%</span>
-                  <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0"
-                      aria-valuemax="100"></div>
-                  </div>
+                <p class="skill-label">HTML <span>95%</span></p>
+                <div class="progress"><div class="progress-bar" role="progressbar" style="width:95%"></div></div>
 
-                  <span>REACT JS</span> <span class="pull-right">85%</span>
-                  <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 85%" aria-valuenow="90" aria-valuemin="0"
-                      aria-valuemax="100"></div>
-                  </div>
+                <p class="skill-label">CSS <span>85%</span></p>
+                <div class="progress"><div class="progress-bar" role="progressbar" style="width:85%"></div></div>
+                <p class="skill-label">Bootstrap <span>80%</span></p>
+                <div class="progress"><div class="progress-bar" role="progressbar" style="width:85%"></div></div>
 
-                    <span>EXPRESS JS</span> <span class="pull-right">80%</span>
-                  <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="90" aria-valuemin="0"
-                      aria-valuemax="100"></div>
-                  </div>
+ <p class="skill-label">GitHub <span>90%</span></p>
+                <div class="progress"><div class="progress-bar" role="progressbar" style="width:90%"></div></div>                
 
-                    <span>NODE JS</span> <span class="pull-right">85%</span>
-                  <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 85%" aria-valuenow="90" aria-valuemin="0"
-                      aria-valuemax="100"></div>
-                  </div>
-
-                    <span>MONGO DB</span> <span class="pull-right">95%</span>
-                  <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 95%" aria-valuenow="90" aria-valuemin="0"
-                      aria-valuemax="100"></div>
-                  </div>
-
-                    <span>ORACLE</span> <span class="pull-right">85%</span>
-                  <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 85%" aria-valuenow="90" aria-valuemin="0"
-                      aria-valuemax="100"></div>
-                  </div>
-                  
-
-                </div>
+                <p class="skill-label">JavaScript <span>90%</span></p>
+                <div class="progress"><div class="progress-bar" role="progressbar" style="width:90%"></div></div>
               </div>
+
               <div class="col-md-6">
-                <div class="about-me pt-4 pt-md-0">
-                  <div class="title-box-2">
-                    <h5 class="title-left">
-                      About me
-                    </h5>
-                  </div>
-                  <p class="lead">
-                    I’m Vasu Thangudu, a passionate and dedicated front-end developer currently pursuing my B.Tech in Electronics and Communication Engineering at Centurion University, Vizianagaram. With hands-on experience from internships at TechnoHacks EduTech, CodingBrains, and Academor, I specialize in building responsive, user-centric web applications using React.js, JavaScript, Bootstrap, and HTML/CSS. I’ve worked on multiple real-world projects including e-commerce platforms, admin dashboards, and UI-rich web interfaces that focus on performance and user experience. I’m always eager to learn new technologies, collaborate on innovative ideas, and bring creative designs to life. Let’s connect and build something impactful together.
-                  </p>
-                 
-                  <p class="lead">
-                  </p>
-                </div>
+                <p class="skill-label">React.js <span>85%</span></p>
+                <div class="progress"><div class="progress-bar" role="progressbar" style="width:85%"></div></div>
+
+                <p class="skill-label">Node.js / Express <span>80%</span></p>
+                <div class="progress"><div class="progress-bar" role="progressbar" style="width:80%"></div></div>
+
+             
+
+                <p class="skill-label">Oracle<span> 75%</span></p>
+                <div class="progress"><div class="progress-bar" role="progressbar" style="width:75%"></div></div>                
+
+
+                <p class="skill-label">MongoDB <span>95%</span></p>
+                <div class="progress"><div class="progress-bar" role="progressbar" style="width:95%"></div></div>
               </div>
+            </div>
+
+            <div class="mt-3 d-flex gap-2 flex-wrap">
+              <a class="btn btn-sm btn-outline-accent" href="#work">See Projects</a>
+              <a class="btn btn-sm btn-accent" href="https://drive.google.com/file/d/1LbUgEDXcS9USlbScCqVW5r1s6Bd8zPiT/view" target="_blank">Download Resume</a>
             </div>
           </div>
         </div>
@@ -192,394 +227,387 @@
     </div>
   </section>
 
-  <!--/ Section Services Star /-->
-  <section id="service" class="services-mf route">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="title-box text-center">
-            <h3 class="title-a">
-              Services
-            </h3>
-            <p class="subtitle-a">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-            </p>
-            <div class="line-mf"></div>
+  <!-- SERVICES -->
+  <section id="service" class="py-4">
+    <div class="container container-narrow">
+      <div class="text-center mb-4">
+        <h4 style="margin-bottom:8px;">Services</h4>
+        <p style="color:var(--muted)">What I can help you build</p>
+      </div>
+
+      <div class="row g-3">
+        <div class="col-md-4">
+          <div class="card-glass h-100 text-center p-3">
+            <div style="font-size:28px;color:var(--accent)"><i class="fa fa-code"></i></div>
+            <h6 class="mt-2">Web Applications</h6>
+            <p style="color:var(--muted); font-size:0.95rem;">React + Node apps, scalable front-ends, SPA, SSR basics.</p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card-glass h-100 text-center p-3">
+            <div style="font-size:28px;color:var(--accent)"><i class="fa fa-database"></i></div>
+            <h6 class="mt-2">API & Backend</h6>
+            <p style="color:var(--muted); font-size:0.95rem;">Express.js REST APIs, authentication, MongoDB data models.</p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card-glass h-100 text-center p-3">
+            <div style="font-size:28px;color:var(--accent)"><i class="fa fa-mobile-screen-button"></i></div>
+            <h6 class="mt-2">Responsive UI</h6>
+            <p style="color:var(--muted); font-size:0.95rem;">Pixel-perfect responsive layouts and accessibility improvements.</p>
           </div>
         </div>
       </div>
-      <div class="row">
-       
-        <div class="col-md-6">
-          <div class="service-box">
-            <div class="service-ico">
-              <span class="ico-circle"><i class="ion-code-working"></i></span>
-            </div>
-            <div class="service-content">
-              <h2 class="s-title">Web Development</h2>
-              <p class="s-description text-center">
-            
-              </p>
-            </div>
-          </div>
-        </div>
-       
-     
+    </div>
+  </section>
+
+  <!-- COUNTERS -->
+  <section class="py-4">
+    <div class="container container-narrow">
+      <div class="row text-center g-3">
       
-       
-            
+        <div class="col-sm-6 col-md-3">
+          <div class="card-glass p-3">
+            <div class="counter">1+</div>
+            <div style="color:var(--muted)">Years Experience</div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+          <div class="card-glass p-3">
+            <div class="counter">3</div>
+            <div style="color:var(--muted)">Internships</div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+          <div class="card-glass p-3">
+            <div class="counter">5+</div>
+            <div style="color:var(--muted)">Projects</div>
           </div>
         </div>
       </div>
     </div>
   </section>
-  <!--/ Section Services End /-->
 
-  <div class="section-counter paralax-mf bg-image" style="background-image: url(img/counters-bg.jpg)">
-    <div class="overlay-mf"></div>
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-6 col-lg-6">
-          <div class="counter-box">
-            <div class="counter-ico">
-              <span class="ico-circle"><i class="ion-checkmark-round"></i></span>
-            </div>
-            <div class="counter-num">
-              <p class="counter">5</p>
-              <span class="counter-text">WORKS COMPLETED</span>
-            </div>
-          </div>
+  <!-- PORTFOLIO/WORK -->
+<section id="work" class="py-4">
+  <div class="container container-narrow">
+    <div class="text-center mb-4">
+      <h4 style="margin-bottom:8px;">Portfolio</h4>
+      <p style="color:var(--muted)">Selected projects — click to view more</p>
+    </div>
+
+    <div class="portfolio-grid">
+      <!-- Project Item -->
+      <div class="work-box" onclick="openGallery(0)">
+        <img src="img/dashboard-1.png" alt="Dashboard">
+        <div class="work-info">
+          <h6 class="w-title">Dashboard</h6>
+          <small style="color:var(--muted)">Web App • Jan 2024</small>
         </div>
-        <div class="col-sm-6 col-lg-6">
-          <div class="counter-box pt-4 pt-md-0">
-            <div class="counter-ico">
-              <span class="ico-circle"><i class="ion-ios-calendar-outline"></i></span>
-            </div>
-            <div class="counter-num">
-              <p class="counter">1</p>
-              <span class="counter-text">YEARS OF EXPERIENCE</span>
-            </div>
-          </div>
+      </div>
+
+      <div class="work-box" onclick="openGallery(1)">
+        <img src="img/Shoper-1.png" alt="Shopper">
+        <div class="work-info">
+          <h6 class="w-title">Shopper</h6>
+          <small style="color:var(--muted)">E-Commerce • Feb 2024</small>
         </div>
-        
-       
-          </div>
+      </div>
+
+
+            <div class="work-box" onclick="openGallery(3)">
+        <img src="img/RRB-1.png" alt="RRB-1">
+        <div class="work-info">
+          <h6 class="w-title">Railway Recruitment Board application forms </h6>
+          <small style="color:var(--muted)"> Railway Recruitment Boardapplication forms  • Feb 2024</small>
+        </div>
+      </div>
+
+                  <div class="work-box" onclick="openGallery(4)">
+        <img src="img/video-tutorial-1.png" alt="RRB-1">
+        <div class="work-info">
+          <h6 class="w-title">Video-tutorial application</h6>
+          <small style="color:var(--muted)"> Railway Recruitment Boardapplication forms  • Feb 2024</small>
+        </div>
+      </div>
+
+      <div class="work-box" onclick="openGallery(2)">
+        <img src="img/KFC-1.png" alt="KFC">
+        <div class="work-info">
+          <h6 class="w-title">KFC Clone</h6>
+          <small style="color:var(--muted)">Landing • Mar 2024</small>
         </div>
       </div>
     </div>
   </div>
+</section>
 
-  <!--/ Section Portfolio Star /-->
-  <section id="work" class="portfolio-mf sect-pt4 route">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="title-box text-center">
-            <h3 class="title-a">
-              Portfolio
-            </h3>
-            <p class="subtitle-a">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-            </p>
-            <div class="line-mf"></div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-4">
-          <div class="work-box">
-            <a href="img/dashboard3.png" data-lightbox="gallery-mf">
-              <div class="work-img">
-                <img src="img/dashboard3.png" alt="" class="img-fluid">
-              </div>
-              <div class="work-content">
-                <div class="row">
-                  <div class="col-sm-8">
-                    <h2 class="w-title">DASHBOARD</h2>
-                    <div class="w-more">
-                      <span class="w-ctegory">Web Design</span> / <span class="w-date">1 jan. 2024</span>
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="w-like">
-                      <span class="ion-ios-plus-outline"></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="work-box">
-            <a href="img/shop1.png" data-lightbox="gallery-mf">
-              <div class="work-img">
-                <img src="img/shop1.png" alt="" class="img-fluid">
-              </div>
-              <div class="work-content">
-                <div class="row">
-                  <div class="col-sm-8">
-                    <h2 class="w-title">SHOPER</h2>
-                    <div class="w-more">
-                      <span class="w-ctegory">Web Design</span> / <span class="w-date">10 Feb. 2024</span>
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="w-like">
-                      <span class="ion-ios-plus-outline"></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="work-box">
-            <a href="img/kfc.png" data-lightbox="gallery-mf">
-              <div class="work-img">
-                <img src="img/kfc.png" alt="" class="img-fluid">
-              </div>
-              <div class="work-content">
-                <div class="row">
-                  <div class="col-sm-8">
-                    <h2 class="w-title">KFC</h2>
-                    <div class="w-more">
-                      <span class="w-ctegory">Web Design</span> / <span class="w-date">1 mar. 2024</span>
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="w-like">
-                      <span class="ion-ios-plus-outline"></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="work-box">
-            <a href="img/eco.png" data-lightbox="gallery-mf">
-              <div class="work-img">
-                <img src="img/eco.png" alt="" class="img-fluid">
-              </div>
-              <div class="work-content">
-                <div class="row">
-                  <div class="col-sm-8">
-                    <h2 class="w-title">ECOMMERCE</h2>
-                    <div class="w-more">
-                      <span class="w-ctegory">Web Design</span> / <span class="w-date">1 sep. 2024</span>
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="w-like">
-                      <span class="ion-ios-plus-outline"></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="work-box">
-            <a href="img/video.png" data-lightbox="gallery-mf">
-              <div class="work-img">
-                <img src="img/video.png" alt="" class="img-fluid">
-              </div>
-              <div class="work-content">
-                <div class="row">
-                  <div class="col-sm-8">
-                    <h2 class="w-title">VIDEO-TUTORIAL</h2>
-                    <div class="w-more">
-                      <span class="w-ctegory">Web Design</span> / <span class="w-date">1 nov. 2024</span>
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="w-like">
-                      <span class="ion-ios-plus-outline"></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-       
-        
-      </div>
-    </div>
-  </section>
-  <!--/ Section Portfolio End /-->
+<!-- IMAGE GALLERY POPUP -->
+<div id="galleryModal" class="modal">
+  <span class="close" onclick="closeGallery()">&times;</span>
+  <img class="modal-content" id="galleryImage">
+  <div class="modal-controls">
+    <button onclick="prevImage()">&#10094;</button>
+    <button onclick="nextImage()">&#10095;</button>
+  </div>
+</div>
 
+<style>
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap: 20px;
+  }
+  .work-box {
+    background:#111; border-radius:8px; cursor:pointer; overflow:hidden;
+    transition:0.3s; position:relative;
+  }
+  .work-box img { width:100%; height:200px; object-fit:cover; }
+  .work-box:hover { transform:scale(1.03); }
 
-
-
-
-  <!--/ Section Contact-Footer Star /-->
-  <section class="paralax-mf footer-paralax bg-image sect-mt4 route" style="background-image: url(img/overlay-bg.jpg)">
-    <div class="overlay-mf"></div>
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="contact-mf">
-            <div id="contact" class="box-shadow-full">
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="title-box-2">
-                    <h5 class="title-left">
-                      Send Message Us
-                    </h5>
-                  </div>
-                  <div>
-                    
-                    <form action=""  role="form" class="contactForm" name="submit-to-google-sheet" >
-                      <div id="sendmessage" style="display:none;">Your message has been sent. Thank you!</div>
-                      <div id="errormessage" style="display:none;"></div>
-                      <div class="row">
-                        <div class="col-md-12 mb-3">
-                          <div class="form-group">
-                            <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" required />
-                            <div class="validation"></div>
-                          </div>
-                        </div>
-                        <div><input type="text" class="form-control" name="phone" placeholder="Your Phone Number" required /></div>
-                        <div><br></div>
-                    
-                        <div class="col-md-12 mb-3">
-                          <div class="form-group">
-                            <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" required />
-                            <div class="validation"></div>
-                          </div>
-                        </div>
-                        <div class="col-md-12 mb-3">
-                          <div class="form-group">
-                            <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 4 chars of subject" required />
-                            <div class="validation"></div>
-                          </div>
-                        </div>
-                        <div class="col-md-12 mb-3">
-                          <div class="form-group">
-                            <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message" required></textarea>
-                            <div class="validation"></div>
-                          </div>
-                        </div>
-                        <div class="col-md-12">
-                          <button type="submit" class="button button-a button-big button-rouded">Send Message</button>
-                        </div>
-                      </div>
-                    </form>
-
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="title-box-2 pt-4 pt-md-0">
-                    <h5 class="title-left">
-                     ADDRESS
-                    </h5>
-                  </div>
-                  <div class="more-info">
-                   
-                    <ul class="list-ico">
-                      <li><span class="ion-ios-location"></span>535580 INDIA, ANDHRA PRADESH, VIZIANAGARAM</li>
-                      <li><span class="ion-ios-telephone"></span>+91 9347893134</li>
-                      <li><span class="ion-email"></span>thanguduvasu2004@gmail.com </li>
-                    </ul>
-                  </div>
-                  <div class="socials">
-                  
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <footer>
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-12">
-            <div class="copyright-box">
-              <p class="copyright">&copy; Copyright <strong></strong>. All Rights Reserved</p>
-              <div class="credits">
-                <!--
-                  All the links in the footer should remain intact.
-                  You can delete the links only if you purchased the pro version.
-                  Licensing information: https://bootstrapmade.com/license/
-                  Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=DevFolio
-                -->
-                Designed by <a>VASU</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
-  </section>
-  <!--/ Section Contact-footer End /-->
-
-  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
-  <div id="preloader"></div>
-
-  <!-- JavaScript Libraries -->
-  <script src="lib/jquery/jquery.min.js"></script>
-  <script src="lib/jquery/jquery-migrate.min.js"></script>
-  <script src="lib/popper/popper.min.js"></script>
-  <script src="lib/bootstrap/js/bootstrap.min.js"></script>
-  <script src="lib/easing/easing.min.js"></script>
-  <script src="lib/counterup/jquery.waypoints.min.js"></script>
-  <script src="lib/counterup/jquery.counterup.js"></script>
-  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-  <script src="lib/lightbox/js/lightbox.min.js"></script>
-  <script src="lib/typed/typed.min.js"></script>
-  <!-- Contact Form JavaScript File -->
-  <script src="contactform/contactform.js"></script>
-
-  <!-- Template Main Javascript File -->
-  <script src="js/main.js"></script>
-
+  /* Modal */
+  .modal {
+    display:none; position:fixed; z-index:999; padding-top:50px;
+    left:0; top:0; width:100%; height:100%;
+    background:rgba(0,0,0,0.9); text-align:center;
+  }
+  .modal-content {
+    max-width:70%; max-height:70vh; border-radius:8px;
+  }
+  .close {
+    position:absolute; top:20px; right:40px;
+    font-size:40px; color:white; cursor:pointer;
+  }
+  .modal-controls {
+    margin-top:10px;
+  }
+  .modal-controls button {
+    background:none; border:2px solid #fff; color:#fff;
+    padding:10px 25px; font-size:22px; cursor:pointer;
+    margin:0 10px; border-radius:6px;
+  }
+  .modal-controls button:hover { background:#fff; color:#000; }
+</style>
 
 <script>
-  const scriptURL = 'https://script.google.com/macros/s/AKfycby4Psi1X9lY1bZb0RZEeNhweAFY3tUu9OECOS9mitdYMd6aq85Q482VeDJKyYKDQz5m2g/exec';
-  const form = document.forms['submit-to-google-sheet'];
-  const sendMessageDiv = document.getElementById('sendmessage');
-  const errorMessageDiv = document.getElementById('errormessage');
+  const projects = [
+    {
+      images: ["img/dashboard-1.png", "img/dashboard-2.png", "img/dashboard-3.png","img/dashboard-4.png"]
+    },
+    {
+      images: ["img/Shoper-1.png", "img/Shoper-2.png", "img/Shoper-3.png","img/Shoper-4.png","img/Shoper-5.png"]
+    },
+    {
+      images: ["img/KFC-1.png", "img/KFC-2.png", "img/KFC-3.png","img/KFC-4.png"]
+    },
+     {
+      images: ["img/RRB-1.png"]
+    },
+    {
+      images: ["img/video-tutorial-1.png", "img/video-tutorial-2.png", "img/video-tutorial-3.png","img/video-tutorial-4.png"]
+    }
+    
+  ];
 
-  form.addEventListener('submit', e => {
-    e.preventDefault();
+  let currentProject = 0;
+  let currentIndex = 0;
 
-    // Show sending alert
-    alert('Your data is sending...');
+  function openGallery(projectIndex) {
+    currentProject = projectIndex;
+    currentIndex = 0;
+    document.getElementById("galleryModal").style.display = "block";
+    showImage();
+  }
 
-    // Send form data
-    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-      .then(response => {
-        console.log('Success!', response);
+  function showImage() {
+    document.getElementById("galleryImage").src =
+      projects[currentProject].images[currentIndex];
+  }
 
-        // Clear the form fields
-        form.reset();
+  function nextImage() {
+    currentIndex = (currentIndex + 1) % projects[currentProject].images.length;
+    showImage();
+  }
 
-        // Show success alert
-        alert('Your message has been sent successfully!');
+  function prevImage() {
+    currentIndex =
+      (currentIndex - 1 + projects[currentProject].images.length) %
+      projects[currentProject].images.length;
+    showImage();
+  }
 
-        // Show "Your message has been sent" div
-        sendMessageDiv.style.display = 'block';
-        errorMessageDiv.style.display = 'none';
-      })
-      .catch(error => {
-        console.error('Error!', error.message);
-
-        // Show error message
-        errorMessageDiv.innerText = 'There was an error submitting your data. Please try again.';
-        errorMessageDiv.style.display = 'block';
-        sendMessageDiv.style.display = 'none';
-      });
-  });
+  function closeGallery() {
+    document.getElementById("galleryModal").style.display = "none";
+  }
 </script>
 
+  <!-- CONTACT -->
+  <section id="contact" class="contact-section">
+    <div class="container container-narrow">
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <div class="card-glass">
+            <h5>Send me a message</h5>
+            <!-- Google Apps Script endpoint - keep your original scriptURL -->
+            <form name="submit-to-google-sheet" class="mt-3" id="contactForm">
+              <div class="mb-2">
+                <input name="name" id="name" class="form-control" placeholder="Your Name" required />
+              </div>
+              <div class="mb-2">
+                <input name="phone" class="form-control" placeholder="Phone number" required />
+              </div>
+              <div class="mb-2">
+                <input name="email" type="email" id="email" class="form-control" placeholder="Your Email" required />
+              </div>
+              <div class="mb-2">
+                <input name="subject" class="form-control" placeholder="Subject" required />
+              </div>
+              <div class="mb-3">
+                <textarea name="message" rows="5" class="form-control" placeholder="Message" required></textarea>
+              </div>
+              <div class="d-flex gap-2">
+                <button class="button-send" type="submit">Send Message</button>
+                <button class="btn btn-outline-accent" type="reset">Reset</button>
+              </div>
+              <div id="formStatus" class="mt-3" style="display:none;"></div>
+            </form>
+          </div>
+        </div>
 
+        <div class="col-lg-6">
+          <div class="card-glass h-100 p-3">
+            <h5>Contact & Address</h5>
+            <ul style="list-style:none; padding-left:0; margin-top:10px; color:var(--muted);">
+              <li><i class="fa fa-map-marker-alt me-2" style="color:var(--accent)"></i>Vizianagaram, Andhra Pradesh, India — 535580</li>
+              <li class="mt-2"><i class="fa fa-phone me-2" style="color:var(--accent)"></i>+91 9347893134</li>
+              <li class="mt-2"><i class="fa fa-envelope me-2" style="color:var(--accent)"></i>thanguduvasu2004@gmail.com</li>
+            </ul>
+            <div class="mt-3">
+              <h6 style="margin-bottom:8px;">Availability</h6>
+              <p style="color:var(--muted);">Open for internships and full-time roles. Available for freelance product and web app work — quick turnaround, clean code and communication.</p>
+            </div>
+
+            <div class="mt-3">
+              <h6 style="margin-bottom:8px;">Quick Links</h6>
+              <div class="d-flex gap-2">
+                <a class="btn btn-sm btn-outline-accent" href="https://github.com/vasuthangudu" target="_blank"><i class="fa fa-github me-1"></i>GitHub</a>
+                <a class="btn btn-sm btn-outline-accent" href="https://www.linkedin.com/in/vasu-thangudu/" target="_blank"><i class="fa fa-linkedin me-1"></i>LinkedIn</a>
+                <a class="btn btn-sm btn-outline-accent" href="#" target="_blank"><i class="fa fa-globe me-1"></i>Portfolio</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container container-narrow">
+      <div class="row">
+        <div class="col-md-12">
+          <div>&copy; <span id="year"></span> Vasu Thangudu. Designed by Vasu. All rights reserved.</div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap Bundle JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+  <script>
+    // Set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Smooth scroll for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', function(e){
+        const target = document.querySelector(this.getAttribute('href'));
+        if(target){ e.preventDefault(); target.scrollIntoView({behavior:'smooth', block:'start'}); }
+      });
+    });
+
+    // Simple typed effect (no external lib)
+    (function simpleTyped(){
+      const el = document.getElementById('typed-line');
+      const list = ["MERN Developer","Frontend Developer","React.js Enthusiast","Web App Builder"];
+      let i = 0, j = 0, forward = true;
+      const speed = 80, pause = 1500;
+      function step(){
+        let current = list[i];
+        if(forward){
+          j++;
+          el.textContent = current.slice(0,j);
+          if(j === current.length){ forward = false; setTimeout(step, pause); return; }
+        } else {
+          j--;
+          el.textContent = current.slice(0,j);
+          if(j === 0){ forward = true; i = (i+1) % list.length; }
+        }
+        setTimeout(step, speed);
+      }
+      step();
+    })();
+
+    // CONTACT FORM (Google Apps Script)
+    (function contactFormHandler(){
+      const scriptURL = 'https://script.google.com/macros/s/AKfycby4Psi1X9lY1bZb0RZEeNhweAFY3tUu9OECOS9mitdYMd6aq85Q482VeDJKyYKDQz5m2g/exec';
+      const form = document.forms['submit-to-google-sheet'];
+      const localForm = document.getElementById('contactForm');
+      const status = document.getElementById('formStatus');
+
+      // if user keeps old form name we still support both
+      if(localForm){
+        localForm.addEventListener('submit', function(e){
+          e.preventDefault();
+          status.style.display = 'block';
+          status.textContent = 'Sending message...';
+          const fd = new FormData(localForm);
+          fetch(scriptURL, { method: 'POST', body: fd })
+            .then(response => {
+              status.style.color = 'var(--accent)';
+              status.textContent = 'Thanks — your message has been sent!';
+              localForm.reset();
+              setTimeout(()=> status.style.display='none', 4000);
+            })
+            .catch(err => {
+              status.style.color = '#ff8080';
+              status.textContent = 'Error sending message. Try again later.';
+              console.error(err);
+            });
+        });
+      }
+
+      // support the original form name used in user's earlier page (if present)
+      if(form && form !== localForm){
+        form.addEventListener('submit', e=>{
+          e.preventDefault();
+          alert('Sending...');
+          fetch(scriptURL, { method:'POST', body: new FormData(form) })
+            .then(()=> {
+              alert('Your message has been sent successfully!');
+              form.reset();
+            }).catch(err=> {
+              alert('There was an error submitting your data. Please try again.');
+              console.error(err);
+            });
+        });
+      }
+    })();
+
+    // Accessibility: add focus outline for keyboard users
+    (function keyboardOutline(){
+      function handleFirstTab(e){
+        if(e.key === 'Tab'){
+          document.documentElement.classList.add('user-is-tabbing');
+          window.removeEventListener('keydown', handleFirstTab);
+        }
+      }
+      window.addEventListener('keydown', handleFirstTab);
+    })();
+  </script>
 
 </body>
 </html>
